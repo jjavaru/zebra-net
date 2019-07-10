@@ -1,15 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Carousel from "./Components/Carousel";
+import Sidebar from "./Components/Sidebar";
 
 function BasicExample() {
   return (
-    <Router>
-      <MainMenu />
-
-        <main role="main" class="flex-shrink-0">
+    <Router basename="zebra-net">
+        <main role="main" className="flex-shrink-0">
           <Route exact path="/" component={Home} />
+          <Route path="/user-demo" component={UserPage} />
           <Route path="/my-data" component={PlaceholderPage('My Data')} />
-          <Route path="/my-physician" component={PlaceholderPage('My Physician')} />
+          <Route path="/my-care-team" component={PlaceholderPage('My Care Team')} />
           <Route path="/patient-groups" component={PlaceholderPage('Patient Groups')} />
         </main>
     </Router>
@@ -32,6 +33,33 @@ function MenuItem({ label, to, exact }) {
   );
 }
 
+const UserPage = ({match}) => {
+  return (
+    <React.Fragment>
+      <MainMenu />
+      <div id="wrapper" style={{paddingTop: '3.5rem'}} >
+        <Sidebar match={ match } />
+        <div id="content-wrapper">
+          <div className="container-fluid">
+            <Route path={`${match.path}/:topicId`} component={PlaceholderTab} />
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+    );
+};
+
+const PlaceholderTab = ({match}) => {
+  return (
+    <div className="jumbotron giant-zebra">
+      <div className="container">
+        <h1 className="display-3">{ match.params.topicId }</h1>
+        <p>This is a placeholder page, add things here</p>
+      </div>
+    </div>
+  );
+};
+
 const MainMenu = () => {
   return (
   <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -43,7 +71,7 @@ const MainMenu = () => {
   <div className="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul className="navbar-nav mr-auto">
       <MenuItem to="/" label="Home" exact />
-      <MenuItem to="/my-physician" label="My Physician" />
+      <MenuItem to="/my-care-team" label="My Care Team" />
       <MenuItem to="/my-data" label="My Data" />
       <MenuItem to="/patient-groups" label="Patient Groups" />
     </ul>
@@ -70,34 +98,34 @@ const MainMenu = () => {
 function Home() {
   return (
     <React.Fragment>
-  <div className="jumbotron">
+  <div className="jumbotron giant-zebra">
     <div className="container">
       <h1 className="display-3">Zebra Health Net</h1>
       <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      
       <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
     </div>
   </div>
 
   <div className="container">
     <div className="row">
-      <div className="col-md-4">
+      <div className="col-md-6">
         <h2>Patients</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         <p><a className="btn btn-success" href="#" role="button">Create a Profile &raquo;</a></p>
+        <p><a className="btn btn-success" href="/user-demo" role="button">Login &raquo;</a></p>
       </div>
-      <div className="col-md-4">
+      <div className="col-md-6">
         <h2>Providers</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a className="btn btn-success" href="#" role="button">Connect to Patients &raquo;</a></p>
-      </div>
-      <div className="col-md-4">
-        <h2>Specialists</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a className="btn btn-success" href="#" role="button">Recruit Participants &raquo;</a></p>
+        <p><a className="btn btn-success" href="#" role="button">Login &raquo;</a></p>
+        <p><a className="btn btn-success" href="#" role="button">Connect to Patient &raquo;</a></p>
       </div>
     </div>
 
     <hr/>
+
+    <Carousel />
 
   </div>
 </React.Fragment>
@@ -106,9 +134,11 @@ function Home() {
 
 const PlaceholderPage = (title) => () => {
   return (
-    <div>
-      <h1>{ title }</h1>
-      <p>This is a placeholder page, add things here</p>
+    <div className="jumbotron giant-zebra">
+      <div className="container">
+        <h1 className="display-3">{ title }</h1>
+        <p>This is a placeholder page, add things here</p>
+      </div>
     </div>
   );
 };
