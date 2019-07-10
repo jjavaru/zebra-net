@@ -113,7 +113,7 @@ function Home() {
         <h2>Patients</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         <p><a className="btn btn-success" href="#" role="button">Create a Profile &raquo;</a></p>
-        <p><a className="btn btn-success" href="/user-demo" role="button">Login &raquo;</a></p>
+        <p><Link className="btn btn-success" to="/user-demo" role="button">Login &raquo;</Link></p>
       </div>
       <div className="col-md-6">
         <h2>Providers</h2>
