@@ -76,20 +76,20 @@ const MainMenu = () => {
       <MenuItem to="/patient-groups" label="Patient Groups" />
     </ul>
 
-            <ul className="nav navbar-nav navbar-right">
-                <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                        <span data-feather="user"></span>
-                        <strong>Patient One</strong>
+    <ul className="nav navbar-nav navbar-right">
+        <li className="dropdown">
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                <span data-feather="user"></span>
+                <strong>Patient One</strong>
 
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                      <button className="dropdown-item" type="button">Action</button>
-                      <button className="dropdown-item" type="button">Another action</button>
-                      <button className="dropdown-item" type="button">Logout</button>
-                    </div>
-                </li>
-            </ul>
+            </a>
+            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+              <button className="dropdown-item" type="button">Action</button>
+              <button className="dropdown-item" type="button">Another action</button>
+              <button className="dropdown-item" type="button">Logout</button>
+            </div>
+        </li>
+    </ul>
   </div>
 </nav>
 );
@@ -98,38 +98,58 @@ const MainMenu = () => {
 function Home() {
   return (
     <React.Fragment>
-  <div className="jumbotron giant-zebra">
+  <div className="jumbotron">
     <div className="container">
-      <h1 className="display-3">Zebra Health Net</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      
-      <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <div className="media">
+      <div style={{width: '200px', height: '200px'}} className="logo mr-4 align-self-start"></div>
+      <div className="media-body">
+        <h1 className="display-3">Zebra Health Net</h1>
+        <p>Zebra (noun) /ˈzēbrə/ : the American medical slang for an exotic medical diagnosis, or patients with such rare disease.</p>
+
+        <p>Zebras travel in packs at times of vulnerability, and so should you. The developers of ZHN believe that by creating an eco-system where patients freely communicate, yield collective data, and share ideas, our vulnerable patients will thrive. Join us in our efforts to overcome challenges we face as patients of rare disease.</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div className="giant-zebra">
+    <div className="container">
+      <div className="row">
+        <Card>
+          <CardTitle title="Patients" />
+          <p><a className="btn btn-success" href="#" role="button">Create a Profile &raquo;</a></p>
+          <p><Link className="btn btn-link" to="/user-demo" role="button">Login &raquo;</Link></p>
+          <p>Join the pack today. We believe in patient-centered approach. Your disease, your body, your data. Each and every patients will dictate how much data will be made available for sharing, and who will be able to access such data.</p>
+        </Card>
+
+        <Card>
+        <CardTitle title="Providers" />
+          <p><a className="btn btn-success" href="#" role="button">Connect to Patients &raquo;</a></p>
+          <p><a className="btn btn-link" href="#" role="button">Login &raquo;</a></p>
+          <p>Rare disease should go beyond “that cool case you saw in clinic yesterday”. Patients of rare disease rely on providers like yourself, the first point of contact, for early recognition of the underlying condition, and correct referral in a timely manner. ZHN is here to help. Join us to learn more about particular conditions, share your approach to managing unique conditions that lack official guidelines in treatment. Your patient asked you to become their co-pilot? ZHN is here to help. Become an advocate for your patients as they seek to communicate with fellow patients and clinical researchers. </p>
+        </Card>
+
+        <Card>
+          <CardTitle title="Researchers" />
+          <p><a className="btn btn-success" href="#" role="button">Recruit Patients &raquo;</a></p>
+          <p><a className="btn btn-link" href="#" role="button">Login &raquo;</a></p>
+          <p>Welcome to ZHN where scientific advances in rare conditions is achieved by patient-centered, patient-led efforts. With help of ZHN, one will no longer have to rely on sporadic local referrals to reach critical number of patients to engage in your clinical trial. ZHN offers accelerated patient recruitment, facilitated communications between providers and other researchers. Your research shouldn’t be confined within the wall of your institution. Help us break down the barriers we face when studying rare disease groups.</p>
+        </Card>
+      </div>
     </div>
   </div>
 
   <div className="container">
-    <div className="row">
-      <div className="col-md-6">
-        <h2>Patients</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a className="btn btn-success" href="#" role="button">Create a Profile &raquo;</a></p>
-        <p><Link className="btn btn-success" to="/user-demo" role="button">Login &raquo;</Link></p>
-      </div>
-      <div className="col-md-6">
-        <h2>Providers</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a className="btn btn-success" href="#" role="button">Login &raquo;</a></p>
-        <p><a className="btn btn-success" href="#" role="button">Connect to Patient &raquo;</a></p>
-      </div>
-    </div>
 
-    <hr/>
-
-    <Carousel />
-
+      <Carousel />
   </div>
 </React.Fragment>
   );
+}
+
+const CardTitle = (props) => <React.Fragment><h3 className="mb-0">{ props.title }</h3><hr /></React.Fragment>
+
+const Card = (props) => {
+  return <div className="col-lg-4"> <div className="card" {...props} /></div>
 }
 
 const PlaceholderPage = (title) => () => {

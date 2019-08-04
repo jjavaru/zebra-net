@@ -10,12 +10,13 @@ const Carousel = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="first-slide" src="https://images.unsplash.com/photo-1553521306-bc1b46b76499?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="First slide" />
+
+          <div className="first-slide blue"></div>
           <div className="container">
             <div className="carousel-caption text-left">
-              <h1>Example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a className="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1>Discovery alert! <small> Example headline</small></h1>
+              <p>Recent queries and related ZHN hypothesis generator have found statistically meaningful anomalies in patient-age distribution when investigating functional gastrinoma with gastrin level greater than 500. Dr. NIH2 has agreed to take on this anomaly to further investigate this stark changes in disease pattern.</p>
+              <a className="btn btn-lg btn-primary" href="#" role="button">Track our progress</a>
             </div>
           </div>
         </div>
@@ -25,7 +26,7 @@ const Carousel = () => {
             <div className="carousel-caption">
               <h1>Another example headline.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a className="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <a className="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
             </div>
           </div>
         </div>
@@ -35,7 +36,7 @@ const Carousel = () => {
             <div className="carousel-caption text-right">
               <h1>One more for good measure.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a className="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <a className="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a>
             </div>
           </div>
         </div>
